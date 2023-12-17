@@ -1,0 +1,12 @@
+<!-- <ul> <li *ngFor="let client of clientList"> 
+    {{client | json}}
+ </li></ul> -->
+ <div *ngFor="let client of clientList; let i = index" class="card-container">
+
+    <div class="client-card">
+        <p><span class="sub-title"> Name: </span>  {{client.name}} </p>
+        <p><span class="sub-title"> EmailId: </span>  {{client.email}} </p>
+    </div>
+
+ </div>
+

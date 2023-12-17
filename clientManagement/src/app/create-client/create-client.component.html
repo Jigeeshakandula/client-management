@@ -1,0 +1,66 @@
+<div class="form-container">
+
+    <h2>Create a Client</h2>
+    <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
+
+        <div class="form-group">
+            <label class="label-text" for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetails.name" #name="ngModel" required>
+            <div *ngIf="name.touched && name.invalid" class="text-danger">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label-text" for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userDetails.email" required
+                email  #email="ngModel">
+            <div *ngIf="email.touched && email.invalid" class="text-danger">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label-text" for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" [(ngModel)]="userDetails.address" required #address="ngModel">
+            <div *ngIf="address.touched && address.invalid" class="text-danger">
+            Address is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label-text" for="mobile">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)]="userDetails.mobile" required
+                pattern="[0-9]{10}" #mobile="ngModel">
+            <div *ngIf="mobile.touched && mobile.invalid" class="text-danger">
+            Please enter a valid mobile number.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="label-text" for="gender">Gender</label>
+            <select class="form-control drop-down-box" id="gender" name="gender" [(ngModel)]="userDetails.gender" required #gender="ngModel">
+                <option value="" disabled>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <div *ngIf="gender.touched && gender.invalid" class="text-danger">
+            Please select a gender.
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label-text" for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userDetails.password" required>
+        </div>
+        <div class="form-group">
+            <label class="label-text" for="rpassword">Repeat Password</label>
+            <input type="password" class="form-control" id="rpassword" name="rpassword" [(ngModel)]="userDetails.rpassword" required #rpassword="ngModel" (keyup)="passwordValidator()">
+            <div *ngIf="(rpassword.touched && rpassword.invalid) || pwdMismatch" class="text-danger">
+            Passwords did not match
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid || pwdMismatch">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+
+.card-container{
+    display: inline-block;
+}
+
+.client-card{
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px #e6e6e6;
+    padding: 10px;
+    margin: 5px;
+    width: max-content;
+}
+
+.sub-title{
+    font-weight: bold;
+}

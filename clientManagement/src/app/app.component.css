@@ -1,0 +1,15 @@
+.button-container{
+   text-align: center;
+}
+
+.button{
+    height: 40px;
+    width: 200px;
+    padding: 2px;
+    margin: 3px;
+}
+
+.text-style{
+    text-decoration: none;
+    color: black;
+}
